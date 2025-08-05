@@ -70,7 +70,7 @@ function speakInstructions(instructions, language = 'en') {
 }
 
 function translateToUrdu(instruction) {
-  // Basic translation mapping - in a real app, you'd use a proper translation service
+  // Basic translation mapping in a real app, we'll use a proper translation service
   const translations = {
     'Head north': 'شمال کی طرف جائیں',
     'Head south': 'جنوب کی طرف جائیں',
@@ -83,7 +83,7 @@ function translateToUrdu(instruction) {
     'Turn around': 'واپس مڑیں'
   };
   
-  // Simple keyword-based translation
+  // Simple keyword based translation
   for (const [english, urdu] of Object.entries(translations)) {
     if (instruction.toLowerCase().includes(english.toLowerCase())) {
       return instruction.replace(new RegExp(english, 'gi'), urdu);
@@ -92,7 +92,7 @@ function translateToUrdu(instruction) {
   return instruction;
 }
 
-// Modern UI Controls Component
+
 function ModernControls({ 
   onLocationClick, 
   selectedBasemap, 
@@ -207,7 +207,7 @@ function ModernControls({
         </div>
       </div>
 
-      {/* Bottom Controls - Enhanced with hospital info */}
+      {/* Bottom Controls  with hospital info */}
       {hasRoute && selectedHospital && (
         <div className="absolute bottom-4 left-4 z-[1000] bg-white rounded-lg shadow-xl border border-gray-200 p-4 max-w-sm">
           <div className="flex items-start justify-between mb-3">
@@ -295,7 +295,7 @@ function LocationControl({ onLocationFound }) {
   return { getLocation, error };
 }
 
-// Enhanced Routing Control
+// Routing Control
 function RoutingControl({ from, to, voiceLanguage, isVoiceEnabled }) {
   const map = useMap();
   const routingControlRef = useRef(null);
@@ -608,7 +608,7 @@ export default function MapView() {
             <button 
               className="bg-white hover:bg-gray-50 shadow-lg rounded-lg w-10 h-10 flex items-center justify-center transition-all duration-200 hover:shadow-xl border border-gray-200"
               onClick={() => {
-                // You'll need to implement zoom in functionality
+                // need to implement zoom in functionality
               }}
             >
               <span className="text-lg font-bold text-gray-700">+</span>
@@ -616,7 +616,7 @@ export default function MapView() {
             <button 
               className="bg-white hover:bg-gray-50 shadow-lg rounded-lg w-10 h-10 flex items-center justify-center transition-all duration-200 hover:shadow-xl border border-gray-200"
               onClick={() => {
-                // You'll need to implement zoom out functionality
+                // need to implement zoom out functionality
               }}
             >
               <span className="text-lg font-bold text-gray-700">−</span>

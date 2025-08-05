@@ -52,7 +52,7 @@ export default function HealthAppPage() {
       {/* Navbar Space */}
       <div className="h-24"></div>
 
-      {/* Hero Banner - Different for premium/free users */}
+      {/*  Banner for premium/free users */}
       <div className="relative bg-[#F6E1C3] py-16 md:py-20 px-4 sm:px-6 lg:px-8">
   <div className="max-w-7xl mx-auto relative z-10">
     <div className="flex flex-col md:flex-row justify-between items-start md:items-center">
@@ -193,7 +193,7 @@ export default function HealthAppPage() {
           </div>
         </div> */}
 
-        {/* Islamabad Pharmacies */}
+        {/* Pharmacies */}
         <div className="mb-10">
           <div className="flex items-center justify-between mb-6">
             <div className="flex items-center">
@@ -331,7 +331,7 @@ export default function HealthAppPage() {
   );
 }
 
-// Updated FeatureCard component with premium lock
+// FeatureCard component
 function FeatureCard({ icon, title, description, isFree, isPremiumUser, onClick }) {
   return (
     <motion.div 
@@ -339,7 +339,7 @@ function FeatureCard({ icon, title, description, isFree, isPremiumUser, onClick 
       className="bg-white rounded-xl p-6 shadow-lg border border-[#e8d9c9] flex flex-col items-center text-center h-full relative"
       onClick={() => {
         if (isFree || isPremiumUser) {
-          // Navigate to the feature's page (handled by parent via onClick prop)
+          // Navigate to the feature's page 
           onClick();
         } else {
           // Navigate to premium page
@@ -360,7 +360,7 @@ function FeatureCard({ icon, title, description, isFree, isPremiumUser, onClick 
   );
 }
 
-// Rest of the components remain exactly the same
+// components 
 function MedicineCard({ medicine }) {
   return (
     <motion.div whileHover={{ scale: 1.02 }} className="bg-white rounded-lg shadow-md overflow-hidden border border-gray-100 flex flex-col" style={{ height: "100%" }}>

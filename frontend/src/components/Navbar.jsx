@@ -16,14 +16,14 @@ function Navbar() {
   const [isOpen, setIsOpen] = useState(false);
   const [dropdownOpen, setDropdownOpen] = useState(false);
   const [profileDropdown, setProfileDropdown] = useState(false);
-  const { isAuthenticated, logout } = useAuth(); // Get auth state and logout function
+  const { isAuthenticated, logout } = useAuth(); // Gets auth state and logout function
 
   return (
     <nav className="bg-white shadow-md fixed w-full z-50">
       <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
         <div className="flex justify-between h-24 items-center">
           
-          {/* Logo - links to home or dashboard based on auth */}
+          {/* link  home or dashboard based on auth */}
           <Link to={isAuthenticated ? "/dashboard" : "/"} className="flex-shrink-0 flex items-center">
             <img
               src="/logo.png"

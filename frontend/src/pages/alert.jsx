@@ -6,7 +6,7 @@ export default function Alert() {
   const [emergencyText, setEmergencyText] = useState("");
   const [conditionText, setConditionText] = useState("");
   const [selectedService, setSelectedService] = useState("1122");
-  const [isPremium, setIsPremium] = useState(false); // Add premium state
+  const [isPremium, setIsPremium] = useState(false); // premium state
 
   useEffect(() => {
     // Check premium status from localStorage or auth context

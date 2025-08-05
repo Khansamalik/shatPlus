@@ -196,7 +196,7 @@ export default function EmergencyContacts() {
     );
   }
 
-  // Original premium content
+  // premium content
   return (
     <div className="min-h-screen bg-gradient-to-br from-gray-50 to-gray-100">
       {/* Main container */}
@@ -368,7 +368,7 @@ export default function EmergencyContacts() {
           </div>
         </section>
 
-        {/* Section 3: Patient Information */}
+        {/* Section 3 Patient Information */}
         <div className='mb-30'>
           <section 
             id="patient-info" 

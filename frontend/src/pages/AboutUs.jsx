@@ -87,7 +87,7 @@ export default function AboutUs() {
   );
 }
 
-// Card Component
+// Card 
 function Card({ title, text }) {
   return (
     <div className="bg-white p-8 rounded-2xl shadow-md border border-gray-200 hover:shadow-lg transition-all duration-300 h-full flex flex-col justify-start">

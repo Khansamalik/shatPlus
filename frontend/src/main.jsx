@@ -25,7 +25,6 @@ import Alert from './pages/alert.jsx';
 import ContactUs from './pages/contact.jsx';
 import PremiumDashboard from './pages/Prohome.jsx';
 
-// Add this import
 import { AuthProvider } from '@/context/AuthContext';
 
 const router = createBrowserRouter(
