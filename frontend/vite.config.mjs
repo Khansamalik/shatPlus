@@ -12,6 +12,6 @@ export default defineConfig(({ mode }) => {
     plugins: [react(),
            tailwindcss(),
     ],
-    base: env.VITE_BASE_PATH || "/"
+    base: env.VITE_BASE_PATH || "/shatPlus"
   }
 })
