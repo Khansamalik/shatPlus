@@ -7,7 +7,7 @@ import Footer from "../components/Footer";
 export default function Registration() {
   const navigate = useNavigate();
 
-  const handleSubmit = (e) => {
+  const handleSubmit = async (e) => {
     e.preventDefault();
     const form = e.target;
     const inputs = form.querySelectorAll("input");
@@ -26,12 +26,36 @@ export default function Registration() {
       alert("Please fill out all required fields.");
       return;
     }
-
-
-    
-
-    navigate("/login");
+    // ✅ Collect form data
+  const data = {
+    name: form[0].value,
+    contact: form[1].value,
+    cnic: form[2].value,
+    email: form[3].value,
+    password: form[4].value,
   };
+   try {
+    // ✅ Send POST request to backend
+    const response = await fetch("http://localhost:5000/api/auth/register", {
+      method: "POST",
+      headers: {
+        "Content-Type": "application/json",
+      },
+      body: JSON.stringify(data),
+    });
+     const result = await response.json();
+
+    if (response.ok) {
+      alert("Registration successful!");
+      navigate("/login");
+    } else {
+      alert(result.message || "Registration failed.");
+    }
+  } catch (error) {
+    console.error("Error during registration:", error);
+    alert("Something went wrong. Please try again.");
+  }
+};
 
   return (
   <div>

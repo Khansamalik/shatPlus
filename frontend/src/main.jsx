@@ -24,6 +24,8 @@ import UploadReport from './pages/Upload.jsx';
 import Alert from './pages/alert.jsx';
 import ContactUs from './pages/contact.jsx';
 import PremiumDashboard from './pages/Prohome.jsx';
+import ProfilePage from './pages/profile.jsx';
+import QRGenerator from './pages/barcode.jsx';
 
 import { AuthProvider } from '@/context/AuthContext';
 
@@ -41,6 +43,8 @@ const router = createBrowserRouter(
       <Route path="register" element={<Registration />} />
       <Route path="contact" element={<ContactUs />} />
       <Route path="login" element={<Login />} />
+      <Route path="profile" element={<ProfilePage />} />
+      <Route path="qrcode" element={<QRGenerator />} />
     </Route>
   )
 );

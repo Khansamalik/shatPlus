@@ -85,12 +85,15 @@ function Navbar() {
                       <Link
                         to="/premium"
                         className="block px-4 py-2 text-gray-800 hover:bg-[#F8F4EC]"
+                        onClick={() => setDropdownOpen(false)}
                       >
                         Features
                       </Link>
                       <Link
                         to="/premium"
+                         state={{ scrollToPrice: true }}
                         className="block px-4 py-2 text-gray-800 hover:bg-[#F8F4EC]"
+                        onClick={() => setDropdownOpen(false)}
                       >
                         Pricing
                       </Link>

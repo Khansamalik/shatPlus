@@ -17,9 +17,23 @@ import {
   MdHealthAndSafety,
   MdAccountBalance 
 } from "react-icons/md";
+import { useLocation } from 'react-router-dom';
+import { useEffect } from 'react';
+import { useState } from 'react'; 
 import { SiEasyeda } from "react-icons/si";
 
 export default function PremiumPatient() {
+  const location = useLocation();
+
+  useEffect(() => {
+    // scroll after mount
+    if (location.state?.scrollToPrice) {
+      const priceSection = document.getElementById('price');
+      if (priceSection) {
+        priceSection.scrollIntoView({ behavior: 'smooth' });
+      }
+    }
+  }, [location]);
   // Premium Features 
   const features = [
     {
@@ -141,7 +155,7 @@ export default function PremiumPatient() {
       </div>
 
       {/* Pricing Section */}
-      <div className="bg-white py-16 px-4">
+      <div id="price" className="bg-white py-16 px-4">
         <div className="max-w-4xl mx-auto">
           <h2 className="text-3xl font-bold text-center text-[#6C0B14] mb-2">
             Choose Your Plan

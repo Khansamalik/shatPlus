@@ -3,7 +3,7 @@ import { CloudUpload, FileText, Trash2, Download } from "lucide-react";
 
 export default function UploadReport() {
   const [uploadedFiles, setUploadedFiles] = useState([]);
-  const [isPremiumMember, setIsPremiumMember] = useState(false); // Default to false for demo
+  const [isPremiumMember, setIsPremiumMember] = useState(true); // Default to false for demo
 
   const handleFileUpload = (event) => {
     const files = Array.from(event.target.files);

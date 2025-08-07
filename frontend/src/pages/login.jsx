@@ -7,7 +7,7 @@ import Footer from "../components/Footer";
 export default function Login() {
   const navigate = useNavigate();
 
-  const handleSubmit = (e) => {
+  const handleSubmit = async (e) => {
     e.preventDefault();
     const form = e.target;
     const inputs = form.querySelectorAll("input");
@@ -26,9 +26,43 @@ export default function Login() {
       alert("Please fill out all required fields.");
       return;
     }
-
-    navigate("/premium");
+    const data = {
+    cnic: form[0].value,
+    password: form[1].value,
   };
+
+  try {
+    const response = await fetch("http://localhost:5000/api/auth/login", {
+      method: "POST",
+      headers: {
+        "Content-Type": "application/json",
+      },
+      body: JSON.stringify(data),
+    });
+
+    const result = await response.json();
+    console.log("Login ID :", result.user.id);
+    localStorage.setItem("userId", result.user.id); // Store user ID in localStorage
+
+    if (response.ok) {
+      // ✅ Login successful
+      alert("Login successful!");
+
+      // Store token or user if needed
+      // localStorage.setItem("token", result.token);
+
+      navigate("/pro");
+    } else {
+      // ❌ Login failed
+      alert(result.message || "Invalid credentials");
+    }
+  } catch (error) {
+    console.error("Login error:", error);
+    alert("Something went wrong. Please try again later.");
+  }
+};
+
+   
 
   return (
   <div>
@@ -55,8 +89,8 @@ export default function Login() {
           <div className="space-y-4">
             <input
               required
-              type="text"
-              placeholder="Enter contact number"
+              type="string"
+              placeholder="Enter CNIC"
               className="focus:outline-[#6C0B14] border h-10 w-full border-[#6C0B14] rounded px-3"
             />
             <input

@@ -5,14 +5,19 @@ import { MdLocalPharmacy } from "react-icons/md";
 import { FaFlask } from "react-icons/fa";
 import { IoIosArrowForward } from "react-icons/io";
 import { useNavigate } from "react-router-dom";
+import { TbRuler } from "react-icons/tb";
+import { Link } from "react-router-dom";
 
 export default function HealthAppPage() {
   const navigate = useNavigate();
-  const [user, setUser] = useState({ isPremium: false });
+  const [user, setUser] = useState({ isPremium: true});
 
+
+
+  
   useEffect(() => {
     // Check user premium status from localStorage or auth context
-    const userData = JSON.parse(localStorage.getItem('user')) || { isPremium: false };
+    const userData = JSON.parse(localStorage.getItem('user')) || { isPremium: true };
     setUser(userData);
   }, []);
 
@@ -79,8 +84,23 @@ export default function HealthAppPage() {
           <FaExclamationTriangle className="mr-2" />
           Emergency Alert
         </button>
-        <button 
-          onClick={() => navigate(user.isPremium ? '/alert' : '/upgrade')}
+        {console.log("is user premium: ",user.isPremium)}
+        {user.isPremium ? 
+         (<button
+          onClick={() => navigate('/alert')}
+           className="bg-[#FEF3F3] text-[#6C0B14] hover:bg-[#E8E0DC] px-8 py-3 w-53 rounded-full font-bold transition-all shadow-md flex items-center justify-center"> 
+           <FaAmbulance className="mr-2" /> Quick Ambulance 
+         </button>
+         ) :(
+          
+            <button onClick={() => {navigate('/premium',{ state: { scrollToPrice: true } })}}
+             className="bg-[#A0153E] text-white hover:bg-[#B51F4A] px-8 py-3 w-53 rounded-full font-bold transition-all shadow-md flex items-center justify-center">
+              <FaCrown className="mr-2" />
+              Upgrade</button>
+         
+         )}
+        {/* <button 
+          onClick={() => navigate(user.isPremium ? '/alert' : '')}
           className={`px-8 py-3 rounded-full font-bold transition-all shadow-md flex items-center justify-center ${
             user.isPremium 
               ? 'bg-[#FEF3F3] text-[#6C0B14] hover:bg-[#E8E0DC]' 
@@ -93,12 +113,14 @@ export default function HealthAppPage() {
               Quick Ambulance
             </>
           ) : (
-            <>
+            <><a herf={user.isPremium ? "":'#price'}className="text-white">
               <FaCrown className="mr-2" />
               Upgrade Now
+              </a>
             </>
           )}
-        </button>
+        </button> */}
+
       </div>
     </div>
   </div>
@@ -116,7 +138,7 @@ export default function HealthAppPage() {
               description={feature.description}
               isFree={feature.isFree}
               isPremiumUser={user.isPremium}
-              onClick={() => feature.isFree || user.isPremium ? navigate(feature.path) : navigate('/premium')}
+              onClick={() => feature.isFree || user.isPremium ? navigate('/qrcode') : navigate('/premium')}
             />
           ))}
         </div>
@@ -163,7 +185,7 @@ export default function HealthAppPage() {
             </button>
             
             <button 
-              onClick={() => user.isPremium ? navigate('/ice-card') : navigate('/premium')}
+              onClick={() => user.isPremium ? navigate('/') : navigate('/premium')}
               className={`py-5 px-4 rounded-lg flex flex-col items-center transition-all group shadow-sm relative h-full ${
                 user.isPremium 
                   ? 'bg-[#F8F4EC] hover:bg-[#6C0B14] hover:text-white' 

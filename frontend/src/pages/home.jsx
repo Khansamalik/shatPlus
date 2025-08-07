@@ -40,7 +40,7 @@ export default function HealthcareWebsite() {
               transition={{ duration: 0.5, delay: 0.4 }}
             >
               <Link
-                to="/signup"
+                to="/register"
                 className="inline-block bg-[#6C0B14] text-white hover:bg-[#8a0f1a] font-medium py-3 px-8 rounded-full text-lg transition-all duration-300"
               >
                 Sign Up Now
@@ -214,7 +214,7 @@ export default function HealthcareWebsite() {
             Join thousands who trust Sehat Plus for their emergency healthcare needs
           </p>
           <Link
-            to="/signup"
+            to="/register"
             className="inline-block bg-white text-[#6C0B14] hover:bg-gray-100 font-bold py-3 px-8 rounded-full text-lg transition-all duration-300"
           >
             Create Your Account

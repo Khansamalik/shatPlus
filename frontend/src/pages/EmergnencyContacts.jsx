@@ -4,7 +4,7 @@ import { FaCrown, FaLock } from 'react-icons/fa';
 
 export default function EmergencyContacts() {
   const navigate = useNavigate();
-  const [isPremium, setIsPremium] = useState(false);
+  const [isPremium, setIsPremium] = useState(true);
   
   // Emergency Contacts State
   const [contacts, setContacts] = useState([]);
@@ -26,7 +26,7 @@ export default function EmergencyContacts() {
 
   // Check premium status on load
   useEffect(() => {
-    const userData = JSON.parse(localStorage.getItem('user')) || { isPremium: false };
+    const userData = JSON.parse(localStorage.getItem('user')) || { isPremium: true };
     setIsPremium(userData.isPremium);
   }, []);
 
