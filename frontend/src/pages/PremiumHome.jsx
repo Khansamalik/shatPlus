@@ -76,10 +76,10 @@ export default function PremiumPatient() {
 
   // Payment Methods
   const paymentMethods = [
-    { 
-      name: "Credit/Debit Cards", 
-      icon: <FaCreditCard className="text-3xl text-[#6C0B14]" /> 
-    },
+    // { 
+    //   name: "Credit/Debit Cards", 
+    //   icon: <FaCreditCard className="text-3xl text-[#6C0B14]" /> 
+    // },
     { 
       name: "EasyPaisa", 
       icon: <SiEasyeda className="text-3xl text-[#6C0B14]" /> 
@@ -212,9 +212,11 @@ export default function PremiumPatient() {
                     <span>Priority support</span>
                   </li>
                 </ul>
+                <Link to="/pm">
                 <button className="w-full bg-[#6C0B14] text-white py-2 rounded-md hover:bg-[#8a0f1a] transition">
                   Upgrade Now
                 </button>
+                </Link>
               </div>
             </div>
 
@@ -238,9 +240,12 @@ export default function PremiumPatient() {
                     <span>Family package</span>
                   </li>
                 </ul>
+                <Link to="/pm">
                 <button className="w-full bg-[#6C0B14] text-white py-2 rounded-md hover:bg-[#8a0f1a] transition">
+                 
                   Choose Annual
                 </button>
+                </Link>
               </div>
             </div>
           </div>

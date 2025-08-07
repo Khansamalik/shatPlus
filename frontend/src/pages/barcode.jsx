@@ -18,13 +18,13 @@ export default function QRGenerator() {
   }, []);
 
   return (
-    <div className="min-h-screen bg-gradient-to-br from-[#f4f7fc] to-[#dce9f7] flex items-center justify-center px-4">
+    <div className="min-h-screen bg-gray-50 flex items-center justify-center px-4">
       <div className="bg-white p-10 rounded-2xl shadow-xl w-full max-w-md text-center transition-all duration-300 hover:scale-105">
         <div className="flex justify-center mb-4">
           {/* Optional Icon (needs @heroicons/react or replace with emoji/icon font) */}
           <QrCodeIcon className="h-10 w-10 text-[#6C0B14]" />
         </div>
-        <h2 className="text-2xl font-bold text-gray-800 mb-6">Your QR Code</h2>
+        <h2 className="text-2xl font-bold text-[#6C0B14] mb-6">Your QR Code</h2>
         {qrData ? (
           <>
             <div className="flex justify-center mb-4">

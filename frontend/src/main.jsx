@@ -26,6 +26,7 @@ import ContactUs from './pages/contact.jsx';
 import PremiumDashboard from './pages/Prohome.jsx';
 import ProfilePage from './pages/profile.jsx';
 import QRGenerator from './pages/barcode.jsx';
+import Methods from './pages/paymentmethod.jsx';
 
 import { AuthProvider } from '@/context/AuthContext';
 
@@ -45,6 +46,7 @@ const router = createBrowserRouter(
       <Route path="login" element={<Login />} />
       <Route path="profile" element={<ProfilePage />} />
       <Route path="qrcode" element={<QRGenerator />} />
+      <Route path="pm" element={<Methods />} />
     </Route>
   )
 );
